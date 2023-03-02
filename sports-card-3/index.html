@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="Description" content="Put your description here.">
+  <base href="/">
+
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      background-color: #ededed;
+    }
+  </style>
+  <title>sports-card-2</title>
+</head>
+
+<body>
+<button class="add">Clone The Card </button>
+<button class="delete">Delete The Clone</button>
+<button class="changeName">Change Name</button>
+<button class="detailsToggle">Toggle Detials</button>
+<button class="changeColor">Change Color</button>
+
+<div class="app">
+
+  <sports-card-2>
+    <img slot="imagelocation" src="https://static01.nyt.com/images/2015/01/04/sports/DOG-mattingly/DOG-mattingly-superJumbo.jpg?quality=75&auto=webp"/>
+    <p>Donald Arthur Mattingly is an American former professional baseball first baseman, coach, and manager in Major League Baseball.</p>
+  </sports-card-2>
+
+</div>
+
+
+  <script type="module" src="./src/sports-card-2.js"></script>
+  <script>
+document.querySelector('.add').addEventListener('click', function(e) {
+  const cloneItem = document.querySelector('sports-card-2').cloneNode(true);
+ 
+  document.querySelector('.app').appendChild(cloneItem);
+});
+
+
+document.querySelector('.changeName').addEventListener("click", function (e) {
+let rename = prompt("Rename the card")
+if (rename) {
+  document.querySelector('sports-card-2').shadowRoot.querySelector('figcaption').innerText = rename;
+  
+}
+
+});
+
+document.querySelector('.delete').addEventListener("click", function (e) {
+
+if ( document.querySelector('.app :last-child') !== document.querySelector('sports-card-2')) {
+    document.querySelector('.app :last-child').remove();
+ }
+  else {
+    alert ("Don't delete the card") ;
+ }
+
+});
+
+document.querySelector('.detailsToggle').addEventListener('click', (e) => {
+  const details = document.querySelector('sports-card-2').shadowRoot.querySelector('details')
+console.log ( details ) ; 
+if ( details.getAttribute ('open')) {
+  details.removeAttribute ('open')
+   ;
+}
+else {
+  details.setAttribute ('open' ,'open' ) ;
+}
+});
+
+const changecolor = document.querySelector(".changeColor");
+changecolor.addEventListener("click", function (e) {
+  const colors = ["blue", "red", "black","tan"]
+  const randomColor = colors[Math.floor(Math.random() * colors.length)];
+  document.querySelector("sports-card-2").accentColor = randomColor;
+});
+
+
+
+
+
+
+
+
+  </script>
+</body>
+
+</html>
