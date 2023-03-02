@@ -16,7 +16,7 @@
       background-color: #ededed;
     }
   </style>
-  <title>sports-card-2</title>
+  <title>sports-card-3</title>
 </head>
 
 <body>
@@ -28,18 +28,18 @@
 
 <div class="app">
 
-  <sports-card-2>
+  <sports-card-3>
     <img slot="imagelocation" src="https://static01.nyt.com/images/2015/01/04/sports/DOG-mattingly/DOG-mattingly-superJumbo.jpg?quality=75&auto=webp"/>
     <p>Donald Arthur Mattingly is an American former professional baseball first baseman, coach, and manager in Major League Baseball.</p>
-  </sports-card-2>
+  </sports-card-3>
 
 </div>
 
 
-  <script type="module" src="./src/sports-card-2.js"></script>
+  <script type="module" src="./src/sports-card-3.js"></script>
   <script>
 document.querySelector('.add').addEventListener('click', function(e) {
-  const cloneItem = document.querySelector('sports-card-2').cloneNode(true);
+  const cloneItem = document.querySelector('sports-card-3').cloneNode(true);
  
   document.querySelector('.app').appendChild(cloneItem);
 });
@@ -48,7 +48,7 @@ document.querySelector('.add').addEventListener('click', function(e) {
 document.querySelector('.changeName').addEventListener("click", function (e) {
 let rename = prompt("Rename the card")
 if (rename) {
-  document.querySelector('sports-card-2').shadowRoot.querySelector('figcaption').innerText = rename;
+  document.querySelector('sports-card-3').shadowRoot.querySelector('figcaption').innerText = rename;
   
 }
 
@@ -56,7 +56,7 @@ if (rename) {
 
 document.querySelector('.delete').addEventListener("click", function (e) {
 
-if ( document.querySelector('.app :last-child') !== document.querySelector('sports-card-2')) {
+if ( document.querySelector('.app :last-child') !== document.querySelector('sports-card-3')) {
     document.querySelector('.app :last-child').remove();
  }
   else {
@@ -66,23 +66,10 @@ if ( document.querySelector('.app :last-child') !== document.querySelector('spor
 });
 
 document.querySelector('.detailsToggle').addEventListener('click', (e) => {
-  const details = document.querySelector('sports-card-2').shadowRoot.querySelector('details')
-console.log ( details ) ; 
-if ( details.getAttribute ('open')) {
-  details.removeAttribute ('open')
-   ;
-}
-else {
-  details.setAttribute ('open' ,'open' ) ;
-}
+  const card = document.querySelector('sports-card-3');
+  card.opened = !card.opened;
 });
 
-const changecolor = document.querySelector(".changeColor");
-changecolor.addEventListener("click", function (e) {
-  const colors = ["blue", "red", "black","tan"]
-  const randomColor = colors[Math.floor(Math.random() * colors.length)];
-  document.querySelector("sports-card-2").accentColor = randomColor;
-});
 
 
 

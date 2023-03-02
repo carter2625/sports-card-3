@@ -3,7 +3,7 @@ import "@lrnwebcomponents/meme-maker/meme-maker.js";
 
 const don = ("https://static01.nyt.com/images/2015/01/04/sports/DOG-mattingly/DOG-mattingly-superJumbo.jpg?quality=75&auto=webp");
 
-export class SportsCard2 extends LitElement {
+export class SportsCard3 extends LitElement {
   static get properties() {
     return {
       name: {
@@ -15,24 +15,28 @@ export class SportsCard2 extends LitElement {
         type: String,
         reflect: true
       },
+      opened: {
+        type: Boolean,
+        reflect: true
+      }
     }
   }
 
   static get styles() {
     return css`
-:host([accent-color="blue"]) .flip-card-inner {
+:host([accent-color="blue"])  {
       background-color: blue;
       color: black;
     }
-    :host([accent-color="red"]) .flip-card {
+    :host([accent-color="red"]) {
       background-color: red;
       color: black;
     }
-    :host([accent-color="black"]) .flip-card {
+    :host([accent-color="black"]) {
       background-color: black;
       color: white;
     }
-    :host([accent-color="tan"]) .flip-card {
+    :host([accent-color="tan"]) {
       background-color: #F5F5DD;
       color: black;
     }
@@ -182,8 +186,16 @@ body {
     this.info = "Information:"
     this.top = "Yankees";
     this.accentColor = null;
+    this.opened = false;
   
   }
+
+  toggleEvent(e){
+    const state = this.shadowRoot.querySelector('details').getAttribute('open') === '' ? true:false;
+    this.opened = state;
+  }
+
+  
 
   render() {
     return html`
@@ -218,7 +230,9 @@ body {
 </div>
 </div>
 
-<details class="details">
+
+
+<details class="details" .open="${this.opened}" @toggle="${this.toggleEvent}">
           <summary>${this.info}</summary>
           <div>
           <slot></slot>
@@ -236,4 +250,4 @@ body {
     `;
   }
 }
-customElements.define('sports-card-2', SportsCard2);
+customElements.define('sports-card-3', SportsCard3);
