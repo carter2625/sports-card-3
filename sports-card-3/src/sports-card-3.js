@@ -195,6 +195,23 @@ body {
     this.opened = state;
   }
 
+  updated(changedProperties) {
+    changedProperties.forEach((oldValue, propName) => {
+      if (propName === 'opened'){
+        this.dispatchEvent(new CustomEvent('open-changed', 
+        {
+          composed: true,
+          bubbles: true,
+          cancelable: false,
+          detail: 
+          {value: this[propName] }
+        }));
+      }
+  
+    });
+  }
+        
+
   
 
   render() {
@@ -215,16 +232,7 @@ body {
       </div>
       <div class="flip-card-back">
       <div class="stats-nameHeader">Player Name: </div>
-                <div class="stats-name">Don Mattingly</div>
-                <div class="stats-birthday">Date of Birth:</div>
-                <div class="stats-dob">April 20, 1961</div>
-                <div class="stats-namePosition">Position:</div>
-                <div class="stats-position">Infielder</div>
-                <div class="career-stats">Career Stats:</div>
-                <div class="career-avg">BA .307
-                <div class="career-hits">Hits 2,153</div>
-                <div class="career-rbis">RBIs 1,099</div>
-                <div class="career-hrs">HRs 222</div>
+          <slot></slot>
       </div>
     </div>
 </div>
@@ -235,7 +243,7 @@ body {
 <details class="details" .open="${this.opened}" @toggle="${this.toggleEvent}">
           <summary>${this.info}</summary>
           <div>
-          <slot></slot>
+          <slot name="info"></slot>
           </div>
       </details>
 </div>

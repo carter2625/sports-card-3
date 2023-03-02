@@ -30,7 +30,19 @@
 
   <sports-card-3>
     <img slot="imagelocation" src="https://static01.nyt.com/images/2015/01/04/sports/DOG-mattingly/DOG-mattingly-superJumbo.jpg?quality=75&auto=webp"/>
-    <p>Donald Arthur Mattingly is an American former professional baseball first baseman, coach, and manager in Major League Baseball.</p>
+    <p slot="info">Donald Arthur Mattingly is an American former professional baseball first baseman, coach, and manager in Major League Baseball.</p>
+
+    <div class="stats-name">Don Mattingly</div>
+      <div class="stats-birthday">Date of Birth:</div>
+        <div class="stats-dob">April 20, 1961</div>
+            <div class="stats-namePosition">Position:</div>
+              <div class="stats-position">Infielder</div>
+                <div class="career-stats">Career Stats:</div>
+             <div class="career-avg">BA .307
+          <div class="career-hits">Hits 2,153</div>
+        <div class="career-rbis">RBIs 1,099</div>
+    <div class="career-hrs">HRs 222</div>
+
   </sports-card-3>
 
 </div>
@@ -38,6 +50,14 @@
 
   <script type="module" src="./src/sports-card-3.js"></script>
   <script>
+
+document.body.addEventListener('open-changed', (e) => {
+  console.log('open-changed', e.detail, e.target)
+  document.querySelector('.detailsToggle').innerText = e.detail.value ? 'Hide Details' : 'Show Details'
+});
+
+
+
 document.querySelector('.add').addEventListener('click', function(e) {
   const cloneItem = document.querySelector('sports-card-3').cloneNode(true);
  
