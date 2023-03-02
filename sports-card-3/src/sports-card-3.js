@@ -43,10 +43,6 @@ export class SportsCard3 extends LitElement {
   
 
 
-body {
-  text-transform: uppercase;
-  font-family: 'Roboto', sans-serif;
-}
 .card {
   position: relative;
   height: 300px;
@@ -184,7 +180,7 @@ body {
     super();
     this.name = "Don Mattingly";
     this.info = "Information:"
-    this.top = "Yankees";
+    this.top = "Don";
     this.accentColor = null;
     this.opened = false;
   
@@ -222,10 +218,9 @@ body {
     <div class="flip-card-front">
       <div class="card">
   <img class="team_logo" src="https://cdn.freebiesupply.com/images/large/2x/new-york-yankees-logo-transparent.png"/>
-  <img class="player" src="https://static01.nyt.com/images/2015/01/04/sports/DOG-mattingly/DOG-mattingly-superJumbo.jpg?quality=75&auto=webp"/>
-  <meme-maker image-url="https://static01.nyt.com/images/2015/01/04/sports/DOG-mattingly/DOG-mattingly-superJumbo.jpg?quality=75&auto=webp"
+  <meme-maker image-url="${don}"
             top-text="${this.top}"
-            font-size="28px"></meme-maker>
+            font-size="15px"></meme-maker>
 
   <figcaption class="name">${this.name}</figcaption>
  </div>
