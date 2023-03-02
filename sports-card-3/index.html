@@ -27,7 +27,6 @@
 <button class="changeColor">Change Color</button>
 
 <div class="app">
-
   <sports-card-3>
     <img slot="imagelocation" src="https://static01.nyt.com/images/2015/01/04/sports/DOG-mattingly/DOG-mattingly-superJumbo.jpg?quality=75&auto=webp"/>
     <p slot="info">Donald Arthur Mattingly is an American former professional baseball first baseman, coach, and manager in Major League Baseball.</p>
@@ -43,7 +42,6 @@
         <div class="career-rbis">RBIs 1,099</div>
     <div class="career-hrs">HRs 222</div>
   </sports-card-3>
-
 </div>
 
 
@@ -75,8 +73,8 @@ if (rename) {
 
 document.querySelector('.delete').addEventListener("click", function (e) {
 
-if ( document.querySelector('.app :last-child') !== document.querySelector('sports-card-3')) {
-    document.querySelector('.app :last-child').remove();
+if ( document.querySelector('.app sports-card-3:last-child') !== document.querySelector('sports-card-3')) {
+    document.querySelector('.app sports-card-3:last-child').remove();
  }
   else {
     alert ("Don't delete the card") ;
@@ -87,6 +85,13 @@ if ( document.querySelector('.app :last-child') !== document.querySelector('spor
 document.querySelector('.detailsToggle').addEventListener('click', (e) => {
   const card = document.querySelector('sports-card-3');
   card.opened = !card.opened;
+});
+
+const changecolor = document.querySelector(".changeColor");
+changecolor.addEventListener("click", function (e) {
+  const colors = ["blue", "red", "black","tan"]
+  const randomColor = colors[Math.floor(Math.random() * colors.length)];
+  document.querySelector("team-card").accentColor = randomColor;
 });
 
 

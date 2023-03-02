@@ -18,30 +18,34 @@ export class SportsCard3 extends LitElement {
       opened: {
         type: Boolean,
         reflect: true
+      },
+      accentColor: {
+        type: String,
+        reflect: true,
+        attribute: 'accent-color'
       }
     }
   }
 
   static get styles() {
     return css`
-:host([accent-color="blue"])  {
-      background-color: blue;
+
+    :host([accent-color="blue"]) .card {
+      border-color: blue;
       color: black;
     }
-    :host([accent-color="red"]) {
-      background-color: red;
+    :host([accent-color="red"]) .card {
+      border-color: red;
       color: black;
     }
-    :host([accent-color="black"]) {
-      background-color: black;
+    :host([accent-color="black"]) .card {
+      border-color: black;
       color: white;
     }
-    :host([accent-color="tan"]) {
-      background-color: #F5F5DD;
+    :host([accent-color="tan"]) .card {
+      border-color: #F5F5DD;
       color: black;
     }
-  
-
 
 .card {
   position: relative;
@@ -220,7 +224,7 @@ export class SportsCard3 extends LitElement {
   <img class="team_logo" src="https://cdn.freebiesupply.com/images/large/2x/new-york-yankees-logo-transparent.png"/>
   <meme-maker image-url="${don}"
             top-text="${this.top}"
-            font-size="15px"></meme-maker>
+            font-size="28px"></meme-maker>
 
   <figcaption class="name">${this.name}</figcaption>
  </div>
