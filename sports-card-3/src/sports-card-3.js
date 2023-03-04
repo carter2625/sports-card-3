@@ -29,13 +29,12 @@ export class SportsCard3 extends LitElement {
 
   static get styles() {
     return css`
-
     :host([accent-color="blue"]) .card {
-      border-color: blue;
+      border-color: #003087;
       color: black;
     }
     :host([accent-color="red"]) .card {
-      border-color: red;
+      border-color: #e4002c;
       color: black;
     }
     :host([accent-color="black"]) .card {
@@ -48,6 +47,8 @@ export class SportsCard3 extends LitElement {
     }
 
 .card {
+  display: inline-block;
+  flex-direction: row;
   position: relative;
   height: 300px;
   width: 200px;
