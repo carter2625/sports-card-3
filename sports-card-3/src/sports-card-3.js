@@ -1,7 +1,7 @@
 import { LitElement, html, css } from 'lit';
 import "@lrnwebcomponents/meme-maker/meme-maker.js";
 
-const don = ("https://static01.nyt.com/images/2015/01/04/sports/DOG-mattingly/DOG-mattingly-superJumbo.jpg?quality=75&auto=webp");
+
 
 export class SportsCard3 extends LitElement {
   static get properties() {
@@ -186,6 +186,7 @@ export class SportsCard3 extends LitElement {
     this.name = "Don Mattingly";
     this.info = "Information:"
     this.top = "Don";
+    this.image = "https://static01.nyt.com/images/2015/01/04/sports/DOG-mattingly/DOG-mattingly-superJumbo.jpg?quality=75&auto=webp"
     this.accentColor = null;
     this.opened = false;
   
@@ -223,7 +224,7 @@ export class SportsCard3 extends LitElement {
     <div class="flip-card-front">
       <div class="card">
   <img class="team_logo" src="https://cdn.freebiesupply.com/images/large/2x/new-york-yankees-logo-transparent.png"/>
-  <meme-maker image-url="${don}"
+  <meme-maker image-url="${this.image}"
             top-text="${this.top}"
             font-size="28px"></meme-maker>
 
